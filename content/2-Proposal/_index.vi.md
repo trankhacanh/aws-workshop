@@ -5,104 +5,150 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# CLOUD-BASED EVENT MANAGEMENT PLATFORM
 
-Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
+## Nền tảng Quản lý, Phát hành Vé và Điểm danh Sự kiện Serverless trên AWS
 
-# IoT Weather Platform for Lab Research  
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+### 1. Tóm tắt dự án
 
-### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+**Cloud-Based Event Management Platform** là giải pháp số hóa toàn diện quy trình tổ chức và quản lý sự kiện dựa trên nền tảng điện toán đám mây với kiến trúc Serverless. Dự án được nghiên cứu và phát triển nhằm tối ưu hóa chi phí vận hành, tự động mở rộng theo lượng request thực tế, hướng tới nhóm đối tượng là các đơn vị tổ chức hội thảo, workshop công nghệ dành cho cộng đồng lập trình viên và doanh nghiệp.
 
-### 2. Tuyên bố vấn đề  
-*Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+Hệ thống hỗ trợ cấu trúc phân quyền chặt chẽ thông qua phân tách vai trò: **Attendee (Người tham dự)** và **Admin/Organizer (Ban tổ chức)**. Nền tảng bao phủ trọn vẹn vòng đời của một sự kiện thông qua 4 phân hệ cốt lõi liên thông nhau:
+- **Quản lý Sự kiện (Event Management):** Cho phép khởi tạo sự kiện công khai (Active) tức thì, cập nhật thông tin và quản lý hình ảnh banner trực quan.
+- **Xác thực & Đăng ký Vé (Auth, Registration & Ticketing):** Quản lý định danh người dùng (Email/Google OAuth), xử lý logic kiểm tra và cập nhật chỗ trống (Slot) theo thời gian thực và tự động khóa cổng đăng ký khi sự kiện đạt giới hạn.
+- **Điểm danh & Chứng nhận (Attendance & Certificate):** Hỗ trợ ban tổ chức quét mã QR của người tham dự tại địa điểm, tự động tạo chứng nhận điện tử dạng PDF lưu trữ đám mây và gửi link tải qua thư điện tử.
+- **Giám sát & Thống kê (Monitoring & Analytics):** Thu thập dữ liệu vận hành thời gian thực và hiển thị các chỉ số đo lường hiệu quả sự kiện trên Dashboard.
 
-*Giải pháp*  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
+Dự án ứng dụng mô hình **Serverless Modular Application** tại khu vực Singapore (**ap-southeast-1**). Toàn bộ hạ tầng đám mây này được quản lý và triển khai tự động dưới dạng Infrastructure as Code (IaC) thông qua công cụ AWS SAM (Serverless Application Model).
 
-*Lợi ích và hoàn vốn đầu tư (ROI)*  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.  
+---
+![Sơ đồ kiến trúc hệ thống](/images/cautruc.jpg)
 
-### 3. Kiến trúc giải pháp  
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.  
+### 2. Vấn đề đặt ra
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+#### Vấn đề là gì?
+Hiện nay, phần lớn các câu lạc bộ, tổ chức công nghệ quy mô vừa và nhỏ khi tổ chức các buổi workshop vẫn phụ thuộc vào phương pháp thủ công hoặc các công cụ văn phòng rời rạc (Google Forms, Excel, gửi mail thủ công), dẫn đến các bất cập:
+- **Khó kiểm soát số lượng thực tế:** Google Forms không có cơ chế chặn đăng ký tự động theo thời gian thực khi hội trường đã hết chỗ (Overbooking), dễ gây vỡ trận về không gian tổ chức.
+- **Thiếu cơ chế hàng đợi tự động:** Khi sự kiện quá tải, ban tổ chức không thể tự động xếp người đăng ký muộn vào danh sách chờ (Waiting List) để xử lý cuốn chiếu khi có người hủy vé.
+- **Ùn tắc tại điểm check-in:** Việc soát vé bằng cách đối chiếu danh sách Excel thủ công tại bàn đón tiếp gây tốn thời gian, dễ nhầm lẫn và tạo trải nghiệm xếp hàng tiêu cực cho người tham dự.
+- **Tốn công sức hậu kỳ:** Quy trình thiết kế, tạo file chứng nhận tham gia (Certificate) và gửi email cho từng lập trình viên sau sự kiện đòi hỏi nhiều nhân sự và thời gian vận hành bằng tay.
+- **Hạ tầng truyền thống lãng phí:** Việc duy trì máy chủ ảo (EC2) hoặc cơ sở dữ liệu bật 24/7 gây lãng phí ngân sách lớn trong những khoảng thời gian dài giữa các sự kiện (khi không có traffic).
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+#### Giải pháp
+Nền tảng cung cấp một ứng dụng thống nhất, tự động hóa toàn bộ các điểm chạm trong quy trình tổ chức sự kiện dựa trên các dịch vụ đám mây được quản lý hoàn toàn (Fully-Managed Services):
+- **Hệ thống Vé & Kiểm soát Slot thời gian thực:** Khách hàng đăng ký vé qua API, hệ thống tự động kiểm tra slot trống bằng biểu thức điều kiện trực tiếp dưới tầng cơ sở dữ liệu. Nếu còn chỗ, hệ thống cập nhật tăng số lượng và vé QR chính thức được tạo; nếu hết chỗ, hệ thống lập tức chặn request ngăn chặn tuyệt đối tình trạng Overbooking.
+- **Soát vé QR tốc độ cao:** Ban tổ chức sử dụng camera trên giao diện Web/Mobile để quét mã QR độc bản trên vé của Attendee, hệ thống ghi nhận trạng thái check-in lập tức vào database.
+- **Tự động hóa cấp chứng chỉ (PDF):** Sau khi sự kiện kết thúc, hệ thống kích hoạt Lambda biên dịch file PDF cá nhân hóa, đẩy lên Amazon S3 bảo mật và tự động gửi email chứa link tải cho người tham dự thông qua Amazon SES.
+- **Thông báo tự động không phụ thuộc thao tác thủ công:** Hệ thống chủ động gửi email xác nhận ngay khi đăng ký vé thành công và tự động nhắc lịch trước giờ sự kiện diễn ra, thông qua cơ chế điều phối sự kiện bất đồng bộ của Amazon EventBridge, không cần ban tổ chức can thiệp gửi thủ công.
+- **Bảo mật phân tầng nghiêm ngặt:** Quản lý tài khoản tập trung bằng Amazon Cognito, che chắn backend API bằng cổng API Gateway tích hợp bộ xác thực mã bảo mật Cognito JWT Authorizer.
 
-*Dịch vụ AWS sử dụng*  
-- *AWS IoT Core*: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.  
-- *AWS Lambda*: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).  
-- *Amazon API Gateway*: Giao tiếp với ứng dụng web.  
-- *Amazon S3*: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).  
-- *AWS Glue*: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.  
-- *AWS Amplify*: Lưu trữ giao diện web Next.js.  
-- *Amazon Cognito*: Quản lý quyền truy cập cho người dùng phòng lab.  
+#### Lợi ích và giá trị mang lại
+- **Số hóa và tự động hóa 100%:** Giảm tải đến 90% khối lượng công việc thủ công của ban tổ chức trước, trong và sau sự kiện.
+- **Khả năng co giãn vô hạn (Elastic Scalability):** Tự động mở rộng tài nguyên để xử lý hàng ngàn lượt đăng ký vé đồng thời tại thời điểm vừa mở cổng workshop mà không gây nghẽn hệ thống.
+- **Tối ưu chi phí tuyệt đối:** Nhờ mô hình Serverless trả phí theo mức dùng (Pay-as-you-go), chi phí vận hành hệ thống trong giai đoạn không diễn ra sự kiện tiệm cận về mức 0 USD.
+- **Kinh nghiệm thực tế chuẩn doanh nghiệp:** Dự án mang lại trải nghiệm thực tiễn sâu sắc cho nhóm phát triển trong việc quy hoạch dữ liệu NoSQL, viết mã nguồn hạ tầng (IaC) và kiểm thử liên thông hệ thống phân tán.
 
-*Thiết kế thành phần*  
-- *Thiết bị biên*: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.  
-- *Tiếp nhận dữ liệu*: AWS IoT Core nhận tin nhắn MQTT từ thiết bị biên.  
-- *Lưu trữ dữ liệu*: Dữ liệu thô lưu trong S3 data lake; dữ liệu đã xử lý lưu ở một S3 bucket khác.  
-- *Xử lý dữ liệu*: AWS Glue Crawlers lập chỉ mục dữ liệu; ETL jobs chuyển đổi để phân tích.  
-- *Giao diện web*: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.  
-- *Quản lý người dùng*: Amazon Cognito giới hạn 5 tài khoản hoạt động.  
+---
 
-### 4. Triển khai kỹ thuật  
-*Các giai đoạn triển khai*  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:  
-1. *Nghiên cứu và vẽ kiến trúc*: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).  
-2. *Tính toán chi phí và kiểm tra tính khả thi*: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).  
-3. *Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp*: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).  
-4. *Phát triển, kiểm thử, triển khai*: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).  
+### 3. Kiến trúc giải pháp
 
-*Yêu cầu kỹ thuật*  
-- *Trạm thời tiết biên*: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.  
-- *Nền tảng thời tiết*: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.  
+Hệ thống được triển khai tập trung tại AWS Region Singapore (**ap-southeast-1**).
 
-### 5. Lộ trình & Mốc triển khai  
-- *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá trạm cũ.  
-- *Thực tập (Tháng 1–3)*:  
-    - Tháng 1: Học AWS và nâng cấp phần cứng.  
-    - Tháng 2: Thiết kế và điều chỉnh kiến trúc.  
-    - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
-- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
+#### Sơ đồ kiến trúc và luồng dữ liệu tổng thể
 
-### 6. Ước tính ngân sách  
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
+![Sơ đồ kiến trúc Serverless Event Platform](/images/2-Proposal/system-architecture.png)
+<p style="text-align: center;"><i>Hình 3.1: Sơ đồ kiến trúc và luồng tương tác dữ liệu Serverless trên AWS.</i></p>
 
-*Chi phí hạ tầng*  
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).  
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).  
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).  
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).  
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).  
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).  
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).  
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).  
+**Mô tả luồng vận hành:**
+Client (React Frontend) tương tác trực tiếp với **Amazon Cognito** để thực hiện luồng đăng nhập và nhận mã bảo mật JWT. Đối với các request nghiệp vụ, Client sẽ đính kèm JWT này vào Header để gửi qua cổng **Amazon API Gateway**. Tại đây, một bộ cấu hình **Cognito JWT Authorizer toàn cục** sẽ giải mã và kiểm tra tính hợp lệ của token trước khi định tuyến request xuống lớp logic xử lý.
 
-*Tổng*: 0,7 USD/tháng, 8,40 USD/12 tháng  
-- *Phần cứng*: 265 USD một lần (Raspberry Pi 5 và cảm biến).  
+Lớp nghiệp vụ bao gồm các cụm **AWS Lambda** độc lập chạy trên môi trường .NET 8. Dữ liệu của hệ thống được tổ chức theo mô hình **Multi-Table Design** trên **Amazon DynamoDB**. Đối với tệp tin media lớn (Banner sự kiện, ảnh đại diện, file chứng nhận PDF), hệ thống sử dụng **Amazon S3** kết hợp cơ chế **Presigned URL** bảo mật để Client tải dữ liệu lên/xuống trực tiếp.
 
-### 7. Đánh giá rủi ro  
-*Ma trận rủi ro*  
-- Mất mạng: Ảnh hưởng trung bình, xác suất trung bình.  
-- Hỏng cảm biến: Ảnh hưởng cao, xác suất thấp.  
-- Vượt ngân sách: Ảnh hưởng trung bình, xác suất thấp.  
+Về tầng phân phối Frontend, hệ thống sử dụng **Amazon CloudFront** làm lớp CDN đặt trước bucket S3 Frontend (được cấu hình private, bật Block Public Access), liên kết qua cơ chế **Origin Access Control (OAC)** để đảm bảo chỉ CloudFront được phép đọc object từ bucket, người dùng không thể truy cập thẳng vào S3. Ở giai đoạn hiện tại, dự án sử dụng domain mặc định do CloudFront cấp phát (dạng `*.cloudfront.net`), chưa gắn Custom Domain riêng và chưa phát hành chứng chỉ ACM; đây là hạng mục mở rộng của giai đoạn phát triển tiếp theo khi dự án triển khai một tên miền thương hiệu riêng.
 
-*Chiến lược giảm thiểu*  
-- Mạng: Lưu trữ cục bộ trên Raspberry Pi với Docker.  
-- Cảm biến: Kiểm tra định kỳ, dự phòng linh kiện.  
-- Chi phí: Cảnh báo ngân sách AWS, tối ưu dịch vụ.  
+Về phần thông báo và tác vụ tự động, hệ thống áp dụng mô hình hướng sự kiện (event-driven), sử dụng trực tiếp **Amazon EventBridge** làm trung gian điều phối, không thông qua Amazon SNS hay Amazon SQS. Hai luồng thông báo được tách biệt rõ ràng:
 
-*Kế hoạch dự phòng*  
-- Quay lại thu thập thủ công nếu AWS gặp sự cố.  
-- Sử dụng CloudFormation để khôi phục cấu hình liên quan đến chi phí.  
+- **Luồng nhắc lịch sự kiện (reminder):** Một EventBridge Schedule chạy định kỳ mỗi giờ (`rate(1 hour)`) kích hoạt trực tiếp Lambda Notification. Hàm này tự quét hai bảng `EventManagementEvents` và `EventManagementTickets` để xác định các sự kiện sắp diễn ra, gọi trực tiếp Amazon SES để gửi email nhắc lịch, và ghi nhận kết quả gửi vào bảng `EventManagementNotificationLogTable`.
+- **Luồng thông báo đăng ký vé:** Ngay sau khi Lambda Registration & Ticketing ghi nhận một vé thành công, hàm này phát hành (`PutEvents`) một sự kiện tùy chỉnh (source: `eventmanagement.ticket`, detail-type: `TicketRegistered`) lên một Custom Event Bus của EventBridge. Một EventBridge Rule được cấu hình để lắng nghe đúng mẫu sự kiện này sẽ bất đồng bộ kích hoạt cùng Lambda Notification nêu trên, từ đó gọi Amazon SES gửi email xác nhận đăng ký và ghi log tương ứng.
 
-### 8. Kết quả kỳ vọng  
-*Cải tiến kỹ thuật*: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
-*Giá trị dài hạn*: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+Nhờ thiết kế này, một Lambda Notification duy nhất (viết bằng .NET 8/C#) đảm nhiệm cả hai nghiệp vụ thông báo, được kích hoạt từ hai nguồn sự kiện độc lập của EventBridge mà không cần bổ sung thêm tầng hàng đợi trung gian.
+
+#### Các dịch vụ AWS sử dụng trong dự án
+- **Amazon Cognito:** Quản lý đăng ký tài khoản qua Email (xác thực bằng mã Verification Code) và liên thông tài khoản Google Login (OAuth2), phát hành JWT token phân quyền nhóm (Attendee/Admin).
+- **Amazon API Gateway:** Cổng HTTP/REST API tiếp nhận request, định tuyến luồng dữ liệu và thực thi Authorizer bảo mật ở tầng biên.
+- **AWS Lambda (.NET 8):** Thực thi toàn bộ logic nghiệp vụ (CRUD sự kiện, đăng ký giữ chỗ, xử lý hàng đợi Waiting List, kiểm tra mã QR check-in, khởi tạo tệp chứng nhận PDF, và xử lý thông báo/nhắc lịch qua EventBridge).
+- **Amazon DynamoDB (Multi-Table):** Hệ thống cơ sở dữ liệu NoSQL lưu trữ thông tin phân tán qua các bảng độc lập: **EventManagementEvents**, **EventManagementCategories**, **EventManagementTickets**, **EventManagementUsers**, **EventManagementAttendance**, và **EventManagementNotificationLogTable**.
+- **Amazon S3:** Lưu trữ tĩnh bảo mật cho tài nguyên hệ thống (Event Banners, User Avatars, Certificate PDFs, Frontend build) với chính sách chặn truy cập công khai (Block Public Access) nghiêm ngặt.
+- **Amazon SES (Simple Email Service):** Dịch vụ gửi thư điện tử tin cậy, dùng để gửi mã xác thực tài khoản, gửi email xác nhận đăng ký vé, gửi email nhắc lịch sự kiện, và gửi liên kết tải chứng nhận PDF cho người dùng.
+- **Amazon CloudWatch:** Hệ thống giám sát tập trung, thu thập log thực thi từ Lambda và các chỉ số của API Gateway, DynamoDB, EventBridge để phục vụ công tác debug và theo dõi sức khỏe hệ thống.
+- **AWS SAM / AWS CloudFormation:** Công cụ định nghĩa hạ tầng bằng mã nguồn, quản lý và deploy toàn bộ stack tài nguyên đám mây thông qua file **template.yaml**.
+- **Amazon CloudFront:** Đóng vai trò lớp phân phối nội dung tĩnh (CDN) cho Frontend React, đặt trước bucket S3 Frontend private thông qua cơ chế Origin Access Control (OAC). Hiện sử dụng domain mặc định do AWS cấp phát, chưa tích hợp Custom Domain/ACM Certificate.
+- **Amazon EventBridge (Schedule & Custom Event Bus):** Đóng vai trò trung tâm điều phối sự kiện bất đồng bộ cho phân hệ Notification, gồm một Schedule chạy định kỳ hàng giờ để gửi email nhắc lịch sự kiện, và một Rule lắng nghe sự kiện `TicketRegistered` phát ra từ Lambda đăng ký vé để gửi email xác nhận.
+- **Amazon SNS / SQS:** Không sử dụng trong kiến trúc hiện tại. Toàn bộ luồng thông báo được xử lý trực tiếp qua Amazon EventBridge kết hợp gọi thẳng Amazon SES từ Lambda Notification, không qua tầng hàng đợi hay pub/sub trung gian bổ sung.
+
+---
+
+### 4. Triển khai kỹ thuật
+
+#### Các giai đoạn triển khai (Từ Tuần 7 đến Tuần 12)
+- **Giai đoạn 1 – Nghiên cứu & Đánh giá (Tuần 7):** Nghiên cứu tổng quan yêu cầu dự án quản lý sự kiện, chọn lọc và đánh giá tính khả thi kỹ thuật của cụm dịch vụ Serverless AWS.
+- **Giai đoạn 2 – Phân tích & Thiết kế luồng (Tuần 8):** Định vị phạm vi MVP, thiết kế sơ đồ User Flow cho luồng xác thực (Email OTP, Google OAuth) và luồng nghiệp vụ đăng ký giữ chỗ / hàng đợi danh sách chờ.
+- **Giai đoạn 3 – Khởi tạo hạ tầng IaC (Tuần 9):** Cấu hình AWS SAM CLI, viết file cấu hình tài nguyên triển khai cụm bảng DynamoDB dạng Multi-Table, thiết lập S3 Bucket lưu trữ assets và phân quyền IAM Roles bảo mật.
+- **Giai đoạn 4 – Tích hợp Xác thực & Bảo mật API (Tuần 10):** Triển khai Cognito User Pool, thiết lập luồng gửi mã Verification Code qua Email và cấu hình bộ lọc Cognito JWT Authorizer trên API Gateway.
+- **Giai đoạn 5 – Phát triển Code Logic Nghiệp vụ (Tuần 11):** Tích hợp Google OAuth vào Cognito. Viết mã nguồn .NET 8 cho Lambda xử lý tạo/sửa/xóa sự kiện, sinh S3 Presigned URL cho banner/avatar, xử lý trừ slot đăng ký vé, logic check-in bằng mã QR, cấu hình EventBridge Schedule gửi nhắc lịch sự kiện định kỳ hàng giờ, thiết lập Custom Event Bus và EventBridge Rule lắng nghe sự kiện `TicketRegistered` để kích hoạt Lambda Notification bất đồng bộ, deploy Frontend qua S3 + CloudFront với Origin Access Control, và tích hợp SES gửi email cho cả hai luồng thông báo.
+- **Giai đoạn 6 – Kiểm thử End-to-End & Tối ưu hóa (Tuần 12):** Thực hiện kiểm thử liên thông toàn hệ thống, tối ưu hóa cấu hình tài nguyên để tiết kiệm chi phí, hoàn thiện tài liệu Workshop Report và chuẩn bị kịch bản demo tốt nghiệp.
+
+---
+
+### 5. Timeline & Milestones
+
+| Mốc thời gian | Tên giai đoạn / Cột mốc quan trọng | Kết quả bàn giao thực tế (Deliverables) |
+| --- | --- | --- |
+| **Tuần 7** | Nghiên cứu yêu cầu & Đánh giá khả thi | Tài liệu phân tích yêu cầu, danh sách dịch vụ AWS lựa chọn. |
+| **Tuần 8** | Thiết kế Kiến trúc & Sơ đồ User Flow | Sơ đồ kiến trúc Serverless, Sơ đồ User Flow cho Auth và Vé. |
+| **Tuần 9** | Khởi tạo hạ tầng bằng AWS SAM | Mã nguồn **template.yaml** tạo thành công Multi-Table DynamoDB, S3, IAM. |
+| **Tuần 10** | Triển khai Xác thực & Cổng Bảo mật | Cụm Cognito hoạt động ổn định, API Gateway kích hoạt JWT Authorizer. |
+| **Tuần 11** | Phát triển Logic Nghiệp vụ Backend | Hoàn thiện mã nguồn các hàm Lambda xử lý Sự kiện, Đăng ký vé, QR Check-in, EventBridge Schedule/Rule cho Notification, deploy Frontend qua CloudFront, và SES. |
+| **Tuần 12** | Kiểm thử End-to-End & Đóng gói | Hệ thống chạy thông suốt, hoàn thiện tài liệu kỹ thuật, chuẩn bị kịch bản demo tốt nghiệp. |
+
+---
+
+### 6. Ước tính chi phí vận hành (Bản đề xuất kinh tế cho quy mô Demo)
+
+| Tên dịch vụ AWS | Mức sử dụng giả định | Chi phí ước tính / Tháng | Ghi chú chính sách AWS |
+| --- | --- | --- | --- |
+| **Amazon Cognito** | 200 MAU (Email & Google Login) | **$0.00** | Miễn phí hoàn toàn cho 50.000 MAU đầu tiên hàng tháng. |
+| **Amazon API Gateway** | 20.000 REST API requests | **$0.07** | Đơn giá vùng ap-southeast-1 là $3.50 / 1 triệu requests. |
+| **AWS Lambda** | 40.000 lượt chạy (Cấu hình 512MB RAM, trung bình 400ms/lượt) | **$0.00** | Nằm hoàn toàn trong hạn mức Free Tier miễn phí của AWS. |
+| **Amazon DynamoDB** | 6 bảng độc lập (bao gồm `EventManagementNotificationLogTable`), chế độ On-Demand, dung lượng 500MB | **$0.05** | Chi phí lưu trữ $0.25/GB. |
+| **Amazon S3** | Lưu trữ 2 GB dữ liệu Standard (bao gồm build Frontend), 5.000 requests PUT/GET | **$0.08** | Chi phí lưu trữ Standard: $0.025/GB. |
+| **Amazon SES** | Gửi 500 emails (Mã OTP, xác nhận đăng ký vé, nhắc lịch, link tải Chứng nhận) | **$0.05** | Đơn giá: $0.10 cho mỗi 1.000 emails gửi đi. |
+| **Amazon CloudWatch** | Thu thập và nạp 1 GB dữ liệu Log hệ thống | **$0.50** | Đơn giá nạp log: $0.50/GB tại Singapore. |
+| **Amazon CloudFront** | ~2.000 requests, dùng domain mặc định `*.cloudfront.net`, chưa Custom Domain | **$0.02** | Nằm phần lớn trong hạn mức Free Tier 1TB data transfer/12 tháng đầu; ước tính cho phần vượt nhẹ. |
+| **Amazon EventBridge (Schedule + Custom Event Bus)** | ~720 lượt Schedule/tháng (mỗi giờ) + số lượt `PutEvents` bằng số vé đăng ký | **$0.01** | Custom event tính phí theo $1/triệu sự kiện phát hành; ở quy mô demo gần như không đáng kể. |
+| **Data Transfer Out** | ~2 GB dữ liệu truyền ra Internet | **$0.18** | Đơn giá truyền dữ liệu ra Internet công cộng: $0.09/GB. |
+
+#### Tổng kết chi phí dự kiến: ~ $0.96 USD / tháng.
+
+---
+
+### 7. Đánh giá rủi ro và Biện pháp giảm thiểu
+
+#### Ma trận rủi ro kỹ thuật
+1. **Trùng lặp request đăng ký vé khi sự kiện sắp hết chỗ (Race Condition):**
+   - *Biện pháp:* Sử dụng cơ chế khóa điều kiện **DynamoDB Conditional Expressions** tại tầng database để kiểm tra biến đếm số chỗ trống một cách cô lập và tuần tự trước khi ghi nhận trạng thái **CONFIRMED**.
+2. **Kẻ xấu spam tải tệp độc hại hoặc chiếm quyền ghi tệp trên Cloud:**
+   - *Biện pháp:* Kích hoạt **S3 Block Public Access** trên diện rộng. Toàn bộ hoạt động upload ảnh banner hoặc avatar bắt buộc phải xin cấp quyền qua endpoint sinh **S3 Presigned URL** với thời gian sống giới hạn dưới 15 phút. Riêng bucket Frontend chỉ cho phép đọc qua CloudFront bằng Origin Access Control, không public trực tiếp.
+3. **Chi phí tăng ngoài kiểm soát do mã nguồn dính vòng lặp vô hạn (Infinite Loop):**
+   - *Biện pháp:* Đặt giới hạn **Hard Timeout** nghiêm ngặt cho mỗi hàm Lambda không quá 10 giây. Đồng thời, cấu hình **AWS Budgets Alerts** để gửi cảnh báo nếu chi phí tài khoản chạm ngưỡng 5 USD.
+4. **Quá tải/throttle khi gửi email hàng loạt hoặc sai lệch múi giờ trong EventBridge Schedule:** EventBridge Schedule chạy `rate(1 hour)` theo giờ UTC có thể dẫn đến gửi email nhắc lịch lệch múi giờ nếu không quy đổi đúng sang giờ Việt Nam (UTC+7) khi so sánh với thời gian sự kiện; đồng thời nếu số lượng sự kiện/vé lớn, việc gọi Amazon SES đồng loạt từ Lambda Notification có thể chạm giới hạn gửi (sending rate) của tài khoản SES.
+   - *Biện pháp:* Chuẩn hóa toàn bộ timestamp lưu trong DynamoDB về UTC và quy đổi tường minh sang giờ Việt Nam ở tầng logic khi so sánh "sự kiện sắp diễn ra". Theo dõi chỉ số `TargetErrorCount` của EventBridge Schedule và `Throttle`/`Bounce` của SES qua CloudWatch. Giới hạn số email gửi mỗi lượt thực thi và thực hiện thủ tục nâng hạn mức gửi (Sending Limits) của tài khoản SES tương ứng với quy mô sự kiện thực tế.
+
+---
+
+### 8. Kết quả mong đợi và Sản phẩm bàn giao
+
+#### Sản phẩm bàn giao của dự án
+1. **Mã nguồn ứng dụng & Hạ tầng đám mây:** Thư mục mã nguồn Backend .NET 8 chạy ổn định và file cấu hình kiến trúc **template.yaml** (AWS SAM CLI) hoàn chỉnh, bao gồm cấu hình EventBridge Schedule, Custom Event Bus/Rule và CloudFront Distribution.
+2. **Cơ sở dữ liệu đám mây:** Cấu trúc 6 bảng DynamoDB Multi-Table (bao gồm `EventManagementNotificationLogTable`) hoạt động thông suốt, đồng bộ dữ liệu chuẩn xác.
+3. **Tài liệu Kỹ thuật (Workshop Report):** Tài liệu phân tích hệ thống, sơ đồ User Flow, thiết kế chi tiết bảng NoSQL, mô tả luồng Notification/Reminder qua EventBridge, và các kịch bản kiểm thử API liên thông End-to-End thành công.

@@ -1,57 +1,34 @@
 ---
 title: "Week 1 Worklog"
-date: 2024-01-01
+date: 2026-04-20
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 1 Objectives
 
-### Week 1 Objectives:
+* Successfully register an AWS account and complete the basic AWS labs to earn 100 AWS Credits.
+* Understand the fundamental AWS services and learn how to use the AWS Management Console and AWS Command Line Interface (CLI).
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks Completed This Week
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference |
+| --- | --- | --- | --- | --- |
+| Monday | - Registered an AWS account.<br>- Searched for teammates and formed a project group. | 20/04/2026 | 20/04/2026 | |
+| Tuesday | - **Hands-on Practice:**<br>&emsp;+ Launched an Amazon EC2 instance (Amazon Linux).<br>&emsp;+ Configured a Security Group (SSH Port 22 - 0.0.0.0/0).<br>&emsp;+ Explored foundation models in the Amazon Bedrock Playground. | 21/04/2026 | 21/04/2026 | |
+| Wednesday | - **Hands-on Practice:**<br>&emsp;+ Configured cost monitoring using AWS Budgets.<br>&emsp;+ Created a simple web application with AWS Lambda.<br>&emsp;+ Created an Amazon RDS database. | 22/04/2026 | 22/04/2026 | |
+| Thursday | - Studied AWS global infrastructure:<br>&emsp;+ AWS Regions.<br>&emsp;+ Availability Zones (AZs).<br>&emsp;+ Edge Locations.<br>- Learned AWS management tools:<br>&emsp;+ AWS Management Console.<br>&emsp;+ AWS Command Line Interface (CLI).<br>&emsp;+ AWS SDK. | 23/04/2026 | 23/04/2026 | <https://www.youtube.com/watch?v=pjr5a-HYAjI&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=7><br><https://www.youtube.com/watch?v=IY61YlmXQe8&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=9> |
+| Friday | - **Hands-on Practice:**<br>&emsp;+ Created IAM Groups and IAM Users.<br>&emsp;+ Configured Multi-Factor Authentication (MFA). | 24/04/2026 | 24/04/2026 | <https://000002.awsstudygroup.com> |
+| Saturday | - **Weekly Knowledge Review:**<br>&emsp;+ **Account Management & Security:** AWS account registration, IAM Users/Groups, MFA configuration, and AWS Budgets.<br>&emsp;+ **Infrastructure & Management Tools:** AWS Regions, Availability Zones, Edge Locations, AWS Management Console, CLI, and SDK.<br>&emsp;+ **Hands-on Services:** Amazon EC2 deployment, Security Group configuration, Amazon Bedrock Playground, AWS Lambda web application, and Amazon RDS database. | 25/04/2026 | 25/04/2026 | |
 
+### Week 1 Achievements
 
-### Week 1 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Successfully created an AWS account.
+* Successfully completed five introductory AWS labs and earned 100 AWS Credits.
+* Gained an understanding of AWS core infrastructure, including:
+  * AWS Regions
+  * Amazon VPC
+  * Availability Zones (AZs)
+  * Other fundamental AWS infrastructure concepts
+* Learned how to configure and manage basic AWS resources using the AWS Management Console.

@@ -1,126 +1,173 @@
 ---
 title: "Event 1"
-date: 2024-01-01
+date: 2026-07-03
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+# Reflection Report: "FCAJ Community Day"
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+### Purpose of the Event
 
-### Event Objectives
-
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+- **Career Orientation:** Help students and young engineers better understand career paths in DevOps, Cloud Computing, Artificial Intelligence, and Data Analytics.
+- **Real-world Experience Sharing:** Industry professionals shared valuable lessons learned from working in technology companies and multinational corporations.
+- **Developing the Right Mindset:** Encourage participants to focus on fundamental knowledge, problem-solving skills, and continuous learning instead of simply chasing the latest technologies.
+- **Community Networking:** Provide opportunities for students and professionals to connect with experts working in Cloud and AI.
 
 ### Speakers
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- **Hoang Trong** – DevOps Engineer, Endava Vietnam
+- **Danh Hoang Hieu Nghi** – AI Engineer, AWS Community Builder, AWS Student Builder Group Leader
+- **Dat Pham** – Data Analytics Engineer
+- **Cuong Nguyen** – Process Engineer
+- **Kien & Tho** – Presentation on **Scalable URL Shortening Service on AWS**
 
-### Key Highlights
+## Key Highlights
 
-#### Identifying the drawbacks of legacy application architecture
+### 1. What Does a DevOps Engineer Really Do?
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+The workshop began with a presentation by **Hoang Trong**, who explained the actual responsibilities of a DevOps Engineer and addressed common misconceptions among students.
 
-#### Transitioning to modern application architecture – Microservices
+Many people believe DevOps is simply about using Docker, Kubernetes, or building CI/CD pipelines. However, DevOps is actually a culture and engineering practice that bridges software development and operations to deliver applications more efficiently, reliably, and automatically.
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+The speaker emphasized that before learning advanced DevOps tools, every engineer should build a strong foundation in:
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+- Linux
+- Networking
+- Git
+- Python or Golang
+- Containers
+- CI/CD
+- Logging and Monitoring
 
-#### Domain-Driven Design (DDD)
+Besides technical knowledge, a DevOps Engineer should develop systems thinking, always ask **"Why?"** before **"How?"**, and focus on identifying the root cause of problems instead of only fixing their symptoms.
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+One of the most memorable messages from this session was:
 
-#### Event-Driven Architecture
+> **"Tools change. Fundamentals stay."**
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+Technologies continue to evolve, but strong fundamental knowledge remains valuable throughout an engineer's career.
 
-#### Compute Evolution
+---
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+### 2. Building a Career Through the AWS Community
 
-#### Amazon Q Developer
+The next session was delivered by **Danh Hoang Hieu Nghi**, who shared his journey from being a student to becoming an AWS Community Builder and AI Engineer.
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+He introduced several AWS community programs, including:
 
-### Key Takeaways
+- First Cloud AI Journey
+- AWS Student Builder Group
+- AWS Community Builder
+- AWS Partner
 
-#### Design Mindset
+By actively participating in these communities, he gained not only technical knowledge but also communication skills, personal branding experience, and valuable professional connections.
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+The most inspiring message from his presentation was:
 
-#### Technical Architecture
+> **"Getting the job is just a beginning."**
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+Landing a job is only the first step. Long-term success depends on continuous learning, knowledge sharing, and consistent self-improvement.
 
-#### Modernization Strategy
+---
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+### 3. Designing a Scalable URL Shortening Service on AWS
 
-### Applying to Work
+One of the most technical sessions focused on designing a **Scalable URL Shortening Service** using AWS.
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+The speakers demonstrated how to design a cloud-native system similar to Bitly that satisfies several important requirements:
 
-### Event Experience
+- Generate unique short URLs
+- Redirect users with low latency
+- Handle millions of requests
+- Maintain high availability
+- Scale efficiently as traffic increases
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+The architecture leverages multiple AWS services working together to ensure performance, reliability, and scalability.
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+This session helped participants better understand how System Design principles can be applied to real-world cloud applications rather than remaining theoretical concepts.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+---
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+### 4. Data Analytics in Modern Enterprises
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+**Dat Pham** shared valuable insights into the daily responsibilities of a Data Analytics Engineer based on his experience at companies such as Kamereo and Colgate-Palmolive.
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+Beyond creating dashboards, the role includes:
 
-#### Some event photos
-*Add your event photos here*  
+- Business data analysis
+- Root cause analysis
+- Process improvement recommendations
+- Operational performance monitoring
+- Supporting digital transformation initiatives
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+He highlighted four essential skills for every data professional:
+
+- Critical thinking
+- Communication
+- Data storytelling
+- Problem solving
+
+He also introduced a career development framework consisting of five stages:
+
+- Follower
+- Learner
+- Problem Solver
+- System Thinker
+- Super Star
+
+The presentation emphasized that career growth is determined by the value an individual creates rather than by job titles alone.
+
+---
+
+### 5. Corporate Culture in Multinational Companies
+
+The final session, presented by **Cuong Nguyen**, focused on workplace culture in multinational corporations (MNCs).
+
+He explained a typical recruitment process, including:
+
+- Resume screening
+- Technical assessment
+- Technical interview
+- Cultural fit interview
+
+One particularly interesting topic was the **No-Blame Post-Mortem** culture, where organizations focus on identifying the root cause of incidents instead of blaming individuals.
+
+The speaker also discussed the importance of continuous improvement, inclusive workplace culture, and adopting international standards while sharing Vietnam's journey toward digital transformation, cloud computing, and artificial intelligence.
+
+---
+
+## Lessons Learned
+
+After attending the workshop, I gained several important insights:
+
+- **Fundamental knowledge is more important than specific technologies.** While tools such as Docker, Kubernetes, and AI continue to evolve, strong foundations in Linux, Networking, Programming, and System Design remain essential.
+
+- **Understand the problem before choosing the technology.** Every cloud solution should be designed to solve real business challenges rather than simply adopting the latest technology.
+
+- **Continuous learning and community involvement are invaluable.** Participating in AWS communities provides excellent opportunities to expand technical knowledge, improve soft skills, and build professional networks.
+
+- **AI is a powerful assistant, not a replacement for engineers.** Engineers should use AI to increase productivity while maintaining critical thinking and problem-solving abilities.
+
+- **Soft skills are just as important as technical skills.** Communication, teamwork, and analytical thinking play a significant role in long-term career success.
+
+---
+
+## Practical Applications
+
+After participating in this workshop, I plan to apply the knowledge gained in the following ways:
+
+- Strengthen my foundation in Linux, Networking, Git, and Docker before exploring more advanced cloud technologies.
+
+- Build practical AWS projects to better understand scalable cloud architectures and high-availability system design.
+
+- Improve my data analysis skills by developing dashboards and practicing business problem-solving techniques.
+
+- Continue participating in AWS Student Builder Group, AWS Community Builder, and other technology meetups to expand my knowledge and professional network.
+
+- Enhance my communication, presentation, and collaboration skills to better prepare for working in professional software engineering environments.
+
+---
+
+

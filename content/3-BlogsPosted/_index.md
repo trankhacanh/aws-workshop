@@ -1,22 +1,17 @@
 ---
 title: "Blogs Posted"
-date: 2024-01-01
+date: 2026-07-03
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
-This section will list and introduce the blogs you have posted to [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). For example:
+###  [Blog 1 - Building a Hybrid Multi-Tenant SaaS Architecture for Stateful Services on AWS](3.1-Blog1/)
+This article introduces a Hybrid Architecture solution on AWS, combining the Isolation (Silo) and Shared (Pool) models for stateful services (such as Game Servers and real-time Chat). The system optimizes costs using the Pool model for small customers and guarantees performance for VIP/Enterprise customers through independent Silo partitions, utilizing DynamoDB as a dynamic "Routing Table" along with Amazon EKS and ElastiCache (Redis) to synchronize session states in real-time.
 
-###  [Blog 1 - SESSION POLICIES IN AMAZON EKS POD IDENTITY](3.1-Blog1/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+###  [Blog 2 - Building a Completely Serverless Notification, Analytics, and Deployment System on AWS](3.2-Blog2/)
+This article shares the experience of deploying a Workshop management project using a completely Serverless architecture and Event-Driven thinking on AWS. The system utilizes Amazon EventBridge as a centralized event distribution hub to decouple components, combined with AWS Lambda and Amazon SES for automated email delivery; DynamoDB for aggregating Dashboard metrics; and CloudWatch for comprehensive monitoring and operations.
 
-###  [Blog 2 - ...](3.2-Blog2/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
-
-###  [Blog 3 - ...](3.3-Blog3/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+###  [Blog 3 - Deep Dive into AWS Lambda Concurrency – What Really Happens When Thousands of Requests Call a Lambda Simultaneously?](3.3-Blog3/)
+This article explores the inner workings of AWS Lambda Concurrency and its auto-scaling mechanisms. It clarifies common misconceptions regarding thread allocation by highlighting the Execution Environment lifecycle. Additionally, the post differentiates between Cold Starts and Warm Starts, details scaling behaviors under sudden traffic spikes, and provides strategic insights into managing Reserved Concurrency and Provisioned Concurrency to mitigate throttling and optimize system performance.

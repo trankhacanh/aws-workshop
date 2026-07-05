@@ -1,57 +1,33 @@
 ---
 title: "Week 9 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-06-15
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 9 Objectives
 
-### Week 9 Objectives:
+* Complete and test the event reminder email workflow using Amazon EventBridge Scheduler.
+* Develop the **Analytics** module to collect and aggregate system statistics from Amazon DynamoDB and Amazon S3.
+* Build the **Analytics Dashboard** on the frontend and integrate it with the analytics APIs to help administrators monitor the system.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks Completed This Week
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference |
+| --- | --- | --- | --- | --- |
+| Monday | - Tested the event reminder email workflow using **Amazon EventBridge Scheduler** by simulating scheduled events.<br>- Verified that the system correctly retrieved event data and successfully delivered reminder emails to registered users. | 15/06/2026 | 15/06/2026 | |
+| Tuesday | - Analyzed the data structures of the **Ticket** and **Attendance** tables from other team members' modules.<br>- Studied the relationships between the data models.<br>- Designed the **AnalyticsRepository** to aggregate system statistics, including total events, registrations, and attendee check-ins. | 16/06/2026 | 16/06/2026 | |
+| Wednesday | - Implemented **AnalyticsRepository**.<br>- Collected statistics from Amazon DynamoDB using **Scan** and **Query** operations.<br>- Counted the number of generated certificates by listing objects stored in the Amazon S3 bucket. | 17/06/2026 | 17/06/2026 | |
+| Thursday | - Implemented `Function.cs` for **AnalyticsLambda**.<br>- Updated `template.yaml` with environment variables and the required **DynamoDBReadPolicy** and **S3ReadPolicy** permissions.<br>- Deployed the Lambda function to AWS and tested the Dashboard APIs. | 18/06/2026 | 18/06/2026 | |
+| Friday | - Developed the **AnalyticsPage** using React.<br>- Integrated the Dashboard API and event-specific analytics APIs.<br>- Updated the application's routing configuration and administrator navigation menu to provide access to the analytics features. | 19/06/2026 | 19/06/2026 | |
+| Saturday | - Attended a company technical event and discussed the system development progress with project members while gaining additional practical experience in AWS Serverless application development. | 20/06/2026 | 20/06/2026 | |
 
+### Week 9 Achievements
 
-### Week 9 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Successfully tested the event reminder email workflow by simulating **Amazon EventBridge Scheduler** events and verified that the system retrieved the correct data and delivered reminder emails successfully.
+* Analyzed the data structures of the **Ticket** and **Attendance** tables, identified their relationships, and designed the **AnalyticsRepository** to support reporting and analytics features.
+* Implemented **AnalyticsRepository** to collect statistics such as the total number of events, registrations, attendee check-ins from Amazon DynamoDB, and issued certificates from Amazon S3.
+* Completed the implementation of **AnalyticsLambda**, updated the AWS SAM `template.yaml` with the required environment variables and IAM permissions, successfully deployed the function to AWS, and verified the Dashboard APIs.
+* Developed the **AnalyticsPage** using React, integrated both the Dashboard API and event-specific analytics APIs, and updated the application's routing and administrator menu to support the new analytics functionality.
+* Participated in a company technical event, exchanged development experiences with project members, and gained additional practical knowledge of building Serverless applications on AWS.

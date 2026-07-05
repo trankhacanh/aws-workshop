@@ -1,59 +1,35 @@
 ---
 title: "Worklog Tuần 1"
-date: 2024-01-01
+date: 2026-04-20
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 1:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
+* Đăng ký thành công tài khoản AWS và thực hiện các bài labs cơ bản để nhận 100 credits.
 * Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
 
-### Các công việc cần triển khai trong tuần này:
+### Các công việc đã triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| 2   | - Đăng ký tài khoản AWS <br> - Tìm kiếm thành viên lập nhóm <br>                                                                                            | 20/04/2026   | 20/04/2026      |
+| 3   | - **Thực hành:** <br>&emsp; + Khởi chạy instance EC2 (Amazon Linux) <br>&emsp;+ Cấu hình security group (Cổng SSH 0.0.0.0/0) <br>&emsp; + Sử dụng mô hình nền tảng trong Amazon Bedrock playground                                          | 21/04/2026   | 21/04/2026      |  |
+| 4   | - **Thực hành:** <br>&emsp; + Thiết lập ngân sách chi phí bằng AWS Budgets <br>&emsp; + Tạo một ứng dụng web bằng AWS Lambda <br>&emsp; + Tạo cơ sở dữ liệu Amazon RDS| 22/04/2026   | 22/04/2026      |  |
+| 5   | - Tìm hiểu cơ sở hạ tầng của AWS: <br>&emsp; + Region <br>&emsp; + Availability Zone (AZ) <br>&emsp; + Edge Locations <br> - Tìm hiểu công cụ quản lý AWS Services <br>&emsp; + AWS Console <br>&emsp; + AWS Command Line Interface (CLI) <br>&emsp; + AWS SDK           | 23/04/2026   | 23/04/2026      | <https://www.youtube.com/watch?v=pjr5a-HYAjI&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=7> <https://www.youtube.com/watch?v=IY61YlmXQe8&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=9>|
+| 6   | - **Thực hành:** <br>&emsp; + Tạo  IAM Group và IAM User  <br>&emsp; + Thiết lập MFA                                                                                         | 24/04/2026   | 24/04/2026      | <https://000002.awsstudygroup.com> |
+| 7   | - **Tổng hợp kiến thức tuần:** <br>&emsp; + Quản lý tài khoản và bảo mật: Đăng ký AWS, tạo IAM User/Group, cấu hình MFA và AWS Budgets. <br>&emsp;  + Hạ tầng & Công cụ quản lý: Tìm hiểu Region, AZ, Edge Locations và cách sử dụng Console, CLI, SDK. <br>&emsp;+ Triển khai dịch vụ & Thực hành: Khởi chạy EC2, cấu hình Security Group, thử nghiệm Amazon Bedrock playground, tạo ứng dụng với AWS Lambda và cơ sở dữ liệu Amazon RDS.                                                                                         | 25/04/2026   | 25/04/2026      | |
 
 ### Kết quả đạt được tuần 1:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
+* Tạo thành công tài khoản AWS
+* Làm thành công 5 bài labs cơ bản nhận thành công 100 credits 
+* Hiểu được hạ tầng cơ bản của AWS bao gồm:
+  * Region
+  * VPC
+  * AZ
   * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Biết cách cấu hình hạ tầng cơ bản trên AWS Console 
 
 

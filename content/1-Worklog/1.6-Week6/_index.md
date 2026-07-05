@@ -1,57 +1,34 @@
 ---
 title: "Week 6 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-05-25
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 6 Objectives
 
-### Week 6 Objectives:
+* Learn how to organize and manage AWS resources using **Tags** and **Resource Groups**.
+* Understand how to control access to AWS resources using **IAM policies**, **resource tags**, and **Permission Boundaries**.
+* Gain hands-on experience with **AWS Key Management Service (KMS)** for data encryption and auditing services such as **AWS CloudTrail** and **Amazon Athena**.
+* Study and practice deploying highly available and scalable applications using **Amazon EC2 Auto Scaling** and **Application Load Balancer (ALB)**.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks Completed This Week
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference |
+| --- | --- | --- | --- | --- |
+| Monday | **Hands-on Practice:**<br>- Completed Lab 27: Managing AWS Resources with Tags and Resource Groups.<br>&emsp;+ Managed resource tags using the AWS CLI.<br>&emsp;+ Created and managed AWS Resource Groups. | 25/05/2026 | 25/05/2026 | <https://000027.awsstudygroup.com/> |
+| Tuesday | **Hands-on Practice:**<br>- Completed Lab 28: Managing Access to Amazon EC2 Resources Using IAM and Resource Tags.<br>&emsp;+ Created IAM Users, IAM Policies, and IAM Roles.<br>&emsp;+ Switched IAM Roles.<br>&emsp;+ Accessed the Amazon EC2 Console in different AWS Regions.<br>&emsp;+ Created Amazon EC2 instances with and without resource tags.<br>&emsp;+ Modified resource tags to validate IAM access control. | 26/05/2026 | 26/05/2026 | <https://000028.awsstudygroup.com> |
+| Wednesday | **Hands-on Practice:**<br>- Completed Lab 30: Restricting User Permissions with IAM Permission Boundaries.<br>&emsp;+ Created IAM Policies.<br>&emsp;+ Created IAM Users with Permission Boundaries.<br>&emsp;+ Verified and tested restricted IAM user permissions. | 27/06/2026 | 27/06/2026 | <https://000030.awsstudygroup.com> |
+| Thursday | **Hands-on Practice:**<br>- Completed Lab 33: Encrypting Data at Rest Using AWS KMS.<br>&emsp;+ Created IAM Policies, Roles, Groups, and Users.<br>&emsp;+ Created and managed AWS KMS keys.<br>&emsp;+ Created an Amazon S3 bucket protected with KMS encryption.<br>&emsp;+ Configured AWS CloudTrail and queried audit logs using Amazon Athena. | 28/06/2026 | 28/06/2026 | <https://000033.awsstudygroup.com> |
+| Friday | - Studied and practiced Amazon EC2 Auto Scaling.<br>&emsp;+ Learned about Auto Scaling Groups.<br>&emsp;+ Learned how to configure Launch Templates.<br>&emsp;+ Studied Application Load Balancer (ALB).<br>&emsp;+ Deployed an Auto Scaling Group integrated with an Application Load Balancer. | 29/06/2026 | 29/06/2026 | <https://www.youtube.com/playlist?list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i><br><https://cloudjourney.awsstudygroup.com/> |
+| Saturday | - Attended a company technical event and participated in knowledge-sharing activities with mentors and other interns. | 30/06/2026 | 30/06/2026 | |
 
+### Week 6 Achievements
 
-### Week 6 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Successfully completed the AWS labs on **Tags**, **Resource Groups**, **IAM Resource Tag-based Access Control**, **Permission Boundaries**, and **AWS KMS**.
+* Learned how to organize and manage AWS resources efficiently using Tags and Resource Groups.
+* Gained practical experience implementing fine-grained access control with IAM Policies, IAM Roles, Resource Tags, and Permission Boundaries.
+* Successfully configured AWS KMS for encryption at rest and used AWS CloudTrail together with Amazon Athena to audit AWS activities.
+* Built and tested an Amazon EC2 Auto Scaling environment integrated with an Application Load Balancer, improving application scalability and availability.
+* Enhanced practical knowledge of AWS security, governance, encryption, auditing, and scalable infrastructure design.

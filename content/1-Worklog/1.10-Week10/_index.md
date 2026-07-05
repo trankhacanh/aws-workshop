@@ -1,57 +1,34 @@
 ---
 title: "Week 10 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-06-22
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
 
+### Week 10 Objectives
 
-### Week 10 Objectives:
+* Complete the event-driven communication architecture between system modules using Amazon EventBridge.
+* Gain a deeper understanding of the **RegistrationTicketLambda** module and the ticket registration workflow to better understand how the serverless modules interact.
+* Complete the backend deployment on AWS and prepare the environment for frontend deployment and project completion.
+* Organize the internship documentation, create the report template, and consolidate the knowledge gained throughout the project.
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+### Tasks Completed This Week
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Day | Task | Start Date | Completion Date | Reference |
+| --- | --- | --- | --- | --- |
+| Monday | - Refactored the notification workflow by replacing direct AWS Lambda invocation with **Amazon EventBridge PutEvents**.<br>- Standardized the event payload format across modules to improve scalability and reduce tight coupling between services. | 22/06/2026 | 22/06/2026 | |
+| Tuesday | - Studied the architecture and source code of the **RegistrationTicketLambda** module.<br>- Learned how ticket information is stored in Amazon DynamoDB.<br>- Studied the use of a **Global Secondary Index (GSI)** on **UserId**.<br>- Analyzed the atomic update mechanism used to prevent duplicate ticket registrations.<br>- Learned how registration events are published through Amazon EventBridge after successful ticket registration. | 23/06/2026 | 23/06/2026 | |
+| Wednesday | - Reviewed the overall AWS architecture of the project.<br>- Analyzed the end-to-end data flow and interactions among AWS services to gain a deeper understanding of the serverless application architecture. | 24/06/2026 | 24/06/2026 | |
+| Thursday | - Prepared the internship report template.<br>- Organized project documentation and summarized the research topics, implementation process, and project outcomes. | 25/06/2026 | 25/06/2026 | |
+| Friday | - Deployed the backend application to AWS.<br>- Identified and resolved deployment issues.<br>- Verified that the backend APIs were functioning correctly in preparation for deploying the frontend application to Amazon S3. | 26/06/2026 | 26/06/2026 | |
+| Saturday | - Attended a company technical event and exchanged project development experiences with team members while learning additional best practices for AWS Serverless application development. | 27/06/2026 | 27/06/2026 | |
 
+### Week 10 Achievements
 
-### Week 10 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Successfully migrated the notification workflow from direct AWS Lambda invocation to an **Amazon EventBridge** event-driven architecture using **PutEvents**, while standardizing event payloads across modules to improve scalability and reduce service coupling.
+* Gained an in-depth understanding of the **RegistrationTicketLambda** module, including Amazon DynamoDB data modeling, the use of a **Global Secondary Index (GSI)** on **UserId**, atomic update operations to prevent duplicate registrations, and event publishing through Amazon EventBridge.
+* Analyzed the complete AWS architecture of the project and gained a clear understanding of how AWS Lambda, Amazon API Gateway, Amazon EventBridge, Amazon DynamoDB, Amazon S3, Amazon SES, and Amazon Cognito interact within the serverless architecture.
+* Created the internship report template and organized the knowledge, implementation activities, and achievements accumulated throughout the internship.
+* Successfully deployed the backend application to AWS, resolved deployment issues, and ensured that all APIs were stable and ready for the frontend deployment to Amazon S3.
+* Participated in a company technical event, exchanged development experiences with team members, and gained additional practical knowledge of AWS services and Serverless architecture.

@@ -1,59 +1,40 @@
 ---
 title: "Worklog Tuần 8"
-date: 2024-01-01
-weight: 1
+date: 2026-06-08
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
 
 
 ### Mục tiêu tuần 8:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+- Tìm hiểu các dịch vụ AWS phục vụ xử lý sự kiện và triển khai hệ thống gồm Amazon EventBridge, Amazon S3, Amazon CloudFront, AWS IAM và Amazon CloudWatch.
+- Bắt đầu phát triển module NotificationLambda, tích hợp Amazon SES và DynamoDB để gửi email thông báo và lưu lịch sử gửi email.
+- Hoàn thiện luồng xử lý thông báo của hệ thống, triển khai thử nghiệm trên AWS và kiểm thử toàn bộ quy trình gửi email.
+
+
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 2   | - Tìm hiểu Amazon EventBridge: Event Bus, Rule, Pattern matching, EventBridge Scheduler (rate/cron) <br> - Sử dụng dữ liệu giả làm luồng đăng ký vé đầu-cuối.                                                                                             | 08/06/2026   | 08/06/2026      |
+| 3   | - Xem lại dịch vụ Amazon S3: Static Website Hosting, Bucket Policy, Public Access Block; Amazon CloudFront phục vụ việc triển khai giao diện sau này ,Tìm hiểu AWS IAM (Role, Policy, nguyên tắc least-privilege) và Amazon CloudWatch (Log Group, Alarm, Metric Filter);                                            | 09/06/2026   | 09/06/2026       |  |
+| 4   | - Thiết kế bảng EventManagementNotificationLog, cập nhật template.yaml thêm NotificationFunction (Lambda, IAM Role, Policies). <br> - Viết NotificationRepository, NotificationLogDynamoMapper, SesEmailService để gửi email và ghi log qua SES + DynamoDB | 10/06/2026   | 10/06/2026       |  |
+| 5   | - Viết Function.cs xử lý 3 loại trigger cho NotificationLambda: API Gateway (xem lịch sử), EventBridge Rule (email xác nhận đăng ký), Schedule (email nhắc lịch).                | 11/06/2026   | 11/06/2026       |  |
+| 6   | - Deploy thử nghiệm lên AWS, debug và sửa lỗi runtime (sai tên thuộc tính khóa chính DynamoDB), kiểm thử end-to-end gửi email xác nhận đăng ký.                                                                                         | 12/06/2026   | 12/06/2026       |  |
+| 7   | - Tham dự event ở trên công ty                                                                                         | 12/06/2026   | 12/06/2026       |  |
 
 
 ### Kết quả đạt được tuần 8:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+ Đã tìm hiểu Amazon EventBridge, bao gồm Event Bus, Rule, Pattern Matching và EventBridge Scheduler (Rate/Cron), đồng thời mô phỏng luồng đăng ký vé bằng dữ liệu giả để hiểu cơ chế phát sinh sự kiện.
+- Đã nghiên cứu Amazon S3, Amazon CloudFront, AWS IAM và Amazon CloudWatch, nắm được vai trò của từng dịch vụ trong việc lưu trữ, phân phối nội dung, phân quyền truy cập và giám sát hệ thống.
+- Đã thiết kế bảng **EventManagementNotificationLog** trên Amazon DynamoDB và cập nhật **template.yaml** để bổ sung tài nguyên cho **NotificationLambda**.
+- Đã xây dựng các thành phần **NotificationRepository**, **NotificationLogDynamoMapper** và **SesEmailService**, thực hiện chức năng gửi email thông qua Amazon SES và lưu lịch sử gửi email vào DynamoDB.
+- Đã hoàn thiện **Function.cs** cho NotificationLambda, xử lý thành công ba loại trigger gồm API Gateway, EventBridge Rule và EventBridge Scheduler.
+- Đã triển khai thử nghiệm NotificationLambda lên AWS, phát hiện và khắc phục lỗi runtime liên quan đến khóa chính của DynamoDB, đồng thời kiểm thử thành công luồng gửi email xác nhận đăng ký từ đầu đến cuối.
+- Tham gia sự kiện nội bộ của công ty, trao đổi kinh nghiệm thực tế về phát triển ứng dụng trên nền tảng AWS và cập nhật thêm kiến thức phục vụ quá trình thực tập.
 
 

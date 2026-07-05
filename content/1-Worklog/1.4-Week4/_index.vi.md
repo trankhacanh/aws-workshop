@@ -1,59 +1,34 @@
 ---
 title: "Worklog Tuần 4"
-date: 2024-01-01
-weight: 1
+date: 2026-05-11
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
 
 ### Mục tiêu tuần 4:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
-
-### Các công việc cần triển khai trong tuần này:
+* Hoàn thành và hiểu cơ bản các dịch vụ ở labs 03
+* Nắm vững kiến trúc, cách vận hành và quản lý các dịch vụ Máy ảo (EC2, Lightsail, Auto Scaling) cùng hệ thống Lưu trữ/Dịch chuyển đi kèm trên AWS
+* Nắm vững kiến trúc lưu trữ đối tượng (Object Storage) của Amazon S3, bao gồm cách quản lý Bucket, phân quyền bảo mật và tối ưu hóa chi phí qua các Storage Class.
+### Các công việc đã triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 2   | - Tìm hiểu dịch vụ Compute VM trên AWS được đăng tải trên youtube AWS Study Group <br>&emsp; + Nghiên cứu & Cấu hình Amazon EC2 Core: Instance types, Key Pair, User data, Meta data <br>&emsp; + Quản lý Sao lưu & Đóng gói hạ tầng: AMI, Backup/Snapshot <br>&emsp; + Cấu hình Hệ thống Lưu trữ AWS (Storage): EBS, Instance store, EFS, FSx. <br>&emsp;                          + Hạ tầng Tự động co giãn: EC2 Auto Scaling <br>&emsp; + Dịch vụ Compute thay thế & Dịch chuyển: Amazon Lightsail, AWS MGN.                                                          | 11/05/2026   | 11/05/2026      | <https://www.youtube.com/watch?v=-t5h4N6vfBs&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=72>|
+| 3   | **Thực hành:** <br> - Triển khai AWS Backup <br>&emsp; + Triển khai hạ tầng <br>&emsp; + Tạo Backup plan <br>&emsp; + Thiết lập thông báo và kiểm tra hoạt động <br> - Triển khai File Storage Gateway <br>&emsp; + Tạo S3 Bucket và EC2 cho Storage Gateway <br>&emsp; + Tạo Storage Gateway <br>&emsp; Tạo File Shares                                | 12/05/2026   | 12/05/2026      | <https://000013.awsstudygroup.com/> <https://000024.awsstudygroup.com/>|
+| 4   | - Lên công ty thực tập <br> **Thực hành:** <br> - Làm quen với Amazon S3 <br>&emsp; + Tạo S3 bucket và tải dữ liệu <br>&emsp; + Bật tính năng static website <br>&emsp; + Cấu hình Block Public Access <br>&emsp; Cấu hình public object <br>&emsp; Tăng tốc website với Cloudfront <br> - Tìm hiểu lý thuyết dịch vụ và cách ứng dụng Cloundfront <br> - Tạo một Static Website deploy lên S3  | 13/05/2026   | 13/05/2026      | <https://000057.awsstudygroup.com/> |
+| 5   | - Tìm hiểu dịch vụ lưu trữ trên AWS ngoài S3 <br>&emsp; + Amazon Storage Gateway, Snow Family, Disaster Recovery, AWS Backup                  | 14/05/2026   | 15/05/2026      | <https://www.youtube.com/watch?v=_yunukwcAwc&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=104>  <https://www.youtube.com/watch?v=mPBjB6Ltl_Q&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=105> <https://www.youtube.com/watch?v=YXn8Q_Hpsu4&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=106> <https://aws.amazon.com/backup>|
+| 6   |  - **Thực hành (Compute & Storage):** <br>&emsp; + Triển khai máy chủ EC2, gắn thêm ổ đĩa EBS và mount ổ đĩa vào hệ thống.<br>&emsp; + Cấu hình tự động đồng bộ/đẩy file log từ máy chủ EC2 về Amazon S3 Bucket.<br>- **Bảo mật & Tối ưu:**<br> &emsp; + Gán IAM Role cho EC2 để phân quyền truy cập S3 an toàn (không dùng Access Key).<br>&emsp; + Cấu hình S3 Bucket Policy để bảo mật và chặn truy cập công khai.                                                                                        | 15/05/2026   | 15/05/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
 
 ### Kết quả đạt được tuần 4:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Hoàn thành các bài lab thuộc Module 03 về dịch vụ Compute và Storage trên AWS.
+* Hiểu được cách triển khai, quản lý và sử dụng các dịch vụ Amazon EC2, Amazon Lightsail, Auto Scaling, EBS, EFS và AWS Backup.
+* Thực hành thành công triển khai AWS Backup, File Storage Gateway và cấu hình sao lưu dữ liệu trên AWS.
+* Nắm được cách sử dụng Amazon S3, bao gồm tạo Bucket, quản lý quyền truy cập, cấu hình Static Website Hosting và tích hợp Amazon CloudFront để phân phối nội dung.
+* Triển khai thành công máy chủ EC2, gắn và sử dụng ổ đĩa EBS, đồng thời cấu hình đồng bộ dữ liệu từ EC2 lên Amazon S3.
+* Áp dụng các cơ chế bảo mật cho hệ thống bằng IAM Role và S3 Bucket Policy nhằm kiểm soát quyền truy cập và tăng cường bảo mật dữ liệu.
+* Nâng cao kỹ năng triển khai, quản lý và tối ưu các dịch vụ Compute và Storage trong môi trường AWS.
 
 
