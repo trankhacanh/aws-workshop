@@ -24,7 +24,7 @@ pre: " <b> 1.8. </b> "
 | 4   | - Thiết kế bảng EventManagementNotificationLog, cập nhật template.yaml thêm NotificationFunction (Lambda, IAM Role, Policies). <br> - Viết NotificationRepository, NotificationLogDynamoMapper, SesEmailService để gửi email và ghi log qua SES + DynamoDB | 10/06/2026   | 10/06/2026       |  |
 | 5   | - Viết Function.cs xử lý 3 loại trigger cho NotificationLambda: API Gateway (xem lịch sử), EventBridge Rule (email xác nhận đăng ký), Schedule (email nhắc lịch).                | 11/06/2026   | 11/06/2026       |  |
 | 6   | - Deploy thử nghiệm lên AWS, debug và sửa lỗi runtime (sai tên thuộc tính khóa chính DynamoDB), kiểm thử end-to-end gửi email xác nhận đăng ký.                                                                                         | 12/06/2026   | 12/06/2026       |  |
-| 7   | - Tham dự event ở trên công ty                                                                                         | 12/06/2026   | 12/06/2026       |  |
+| 7   | - Tham dự event ở trên công ty                                                                                         | 13/06/2026   | 13/06/2026       |  |
 
 
 ### Kết quả đạt được tuần 8:

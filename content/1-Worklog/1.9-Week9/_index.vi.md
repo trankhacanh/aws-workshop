@@ -24,7 +24,7 @@ pre: " <b> 1.9. </b> "
 | 4   | - Viết AnalyticsRepository: đếm số liệu qua DynamoDB Scan/Query, đếm số chứng chỉ đã cấp qua liệt kê object trong S3 Bucket. | 17/06/2026   | 17/06/2026      |  |
 | 5   | - Viết AnalyticsLambda Function.cs, cập nhật template.yaml (biến môi trường, quyền DynamoDBReadPolicy/S3ReadPolicy), deploy và kiểm thử API Dashboard.                | 18/06/2026   | 18/06/2026      |  |
 | 6   | - Xây dựng trang AnalyticsPage phía Frontend (React), gọi API Dashboard và API thống kê theo từng sự kiện, cập nhật route và menu điều hướng Admin.                                                                                         | 19/06/2026   | 19/06/2026      |  |
-| 7   | - Tham dự event ở trên công ty                                                                                       | 20/06/2026   | 20/06/2026      |  |
+
 
 
 ### Kết quả đạt được tuần 9:

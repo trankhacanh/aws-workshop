@@ -21,7 +21,7 @@ pre: " <b> 1.9. </b> "
 | Wednesday | - Implemented **AnalyticsRepository**.<br>- Collected statistics from Amazon DynamoDB using **Scan** and **Query** operations.<br>- Counted the number of generated certificates by listing objects stored in the Amazon S3 bucket. | 17/06/2026 | 17/06/2026 | |
 | Thursday | - Implemented `Function.cs` for **AnalyticsLambda**.<br>- Updated `template.yaml` with environment variables and the required **DynamoDBReadPolicy** and **S3ReadPolicy** permissions.<br>- Deployed the Lambda function to AWS and tested the Dashboard APIs. | 18/06/2026 | 18/06/2026 | |
 | Friday | - Developed the **AnalyticsPage** using React.<br>- Integrated the Dashboard API and event-specific analytics APIs.<br>- Updated the application's routing configuration and administrator navigation menu to provide access to the analytics features. | 19/06/2026 | 19/06/2026 | |
-| Saturday | - Attended a company technical event and discussed the system development progress with project members while gaining additional practical experience in AWS Serverless application development. | 20/06/2026 | 20/06/2026 | |
+
 
 ### Week 9 Achievements
 
