@@ -123,6 +123,7 @@ The workshop demo follows this flow:
 9. After check-in, the user requests a certificate; the system generates a PDF, uploads it to S3, and sends it via SES.
 10. Admin views the analytics dashboard: registration counts, attendance rate, and notification logs for each event.
 
+PROJECT DEMO VIDEO LINK: https://drive.google.com/drive/folders/1b932X5U-BpUQL-tDL7TfKBquX4EtxPWM
 ---
 
 ## Expected outcomes

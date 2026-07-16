@@ -123,6 +123,7 @@ Workshop demo theo flow sau:
 9. Sau khi check-in, User yêu cầu chứng nhận; hệ thống tạo PDF, upload S3 và gửi email qua SES.
 10. Admin xem dashboard phân tích: số lượng đăng ký, tỷ lệ check-in, log thông báo theo từng sự kiện.
 
+LINK VIDEO DEMO DỰ ÁN: https://drive.google.com/drive/folders/1b932X5U-BpUQL-tDL7TfKBquX4EtxPWM
 ---
 
 ## Kết quả mong đợi
